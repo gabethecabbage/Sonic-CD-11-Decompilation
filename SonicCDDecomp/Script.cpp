@@ -458,7 +458,8 @@ AliasInfo aliases[0x80] = { AliasInfo("true", "1"),
                             AliasInfo("RETRO_PS3", "3"),
                             AliasInfo("RETRO_iOS", "4"),
                             AliasInfo("RETRO_ANDROID", "5"),
-                            AliasInfo("RETRO_WP7", "6") };
+                            AliasInfo("RETRO_WP7", "6"),
+                            AliasInfo("RETRO_LINUX", "7") };
 
 
 const char scriptEvaluationTokens[][0x4] = {

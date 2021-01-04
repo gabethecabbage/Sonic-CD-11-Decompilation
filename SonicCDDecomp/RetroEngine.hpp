@@ -27,17 +27,21 @@ typedef unsigned long long ulong;
 #define RETRO_iOS      (4)
 #define RETRO_ANDROID  (5)
 #define RETRO_WP7      (6)
+#define RETRO_LINUX    (7)
+
 
 #if defined _WIN32
 #define RETRO_PLATFORM (RETRO_WIN)
 #elif defined __APPLE__
 #define RETRO_PLATFORM (RETRO_OSX)
+#elif defined __linux__
+#define RETRO_PLATFORM (RETRO_LINUX)
 #else
 #define RETRO_PLATFORM (RETRO_WIN) //Default
 #endif
 
 
-#if RETRO_PLATFORM == RETRO_WINDOWS || RETRO_PLATFORM == RETRO_OSX
+#if RETRO_PLATFORM == RETRO_WINDOWS || RETRO_PLATFORM == RETRO_OSX || RETRO_PLATFORM == RETRO_LINUX
 #define RETRO_USING_SDL (1)
 #else //Since its an else & not an elif these platforms probably aren't supported yet
 #define RETRO_USING_SDL (0)
@@ -110,7 +114,7 @@ enum RetroBytecodeFormat {
 #define SCREEN_YSIZE (240)
 #define SCREEN_CENTERY (SCREEN_YSIZE / 2)
 
-#if RETRO_PLATFORM == RETRO_WIN
+#if RETRO_PLATFORM == RETRO_WIN || RETRO_PLATFORM == RETRO_LINUX
 #include <SDL.h>
 #include <vorbis/vorbisfile.h>
 #include <theora/theora.h>
